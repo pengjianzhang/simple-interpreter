@@ -175,8 +175,8 @@ struct script
 
 
 #define MAX_ARGUMENT_NUM	16	
-#define MAX_FUNCTION_NAME	64
-#define MAX_CLASS_NAME	64
+#define MAX_FUNCTION_NAME	32	
+#define MAX_CLASS_NAME		32
 
 /*
  * eg string.len
@@ -201,7 +201,7 @@ struct function_entry
  * string is a class, all string functions in a function_table
  *
  * */
-struct function_table
+struct function_class
 {
 	struct list_head list;
 	char classname[MAX_CLASS_NAME];
@@ -210,7 +210,7 @@ struct function_table
 };
 
 
-struct interpreter
+struct simple_interpreter
 {
 	struct list_head script_list;
 	struct list_head function_table_list;
@@ -220,16 +220,6 @@ struct interpreter
 
 
 extern int interpreter_line_num;
-
-
-
-
-
-
-
-
-
-
 
 
 
