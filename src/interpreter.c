@@ -47,7 +47,7 @@ struct statement_node * new_assignment( struct variable * v, struct expression_n
 	}	
 
 	as->var = v;
-	as->enode = en;
+	as->enodep = en;
 
 	return &(as->snode);
 }
@@ -124,11 +124,11 @@ static inline int _operation_is_unitary( enum operation_type opt)
 
 static inline int _operation_match(enum operation_type opt, enum value_type vt)
 {
-	if(_operation_is_arithmetic(opt,-1) && (et ==  INTEGER))
-		if return 1;	
-	else if( _operation_is_relation(opt,-1)&& (er == INTEGER))
+	if(_operation_is_arithmetic(opt,-1) && (vt ==  INTEGER))
+		return 1;	
+	else if( _operation_is_relation(opt,-1)&& (vt == INTEGER))
 		return 1;
-	else if( _operation_is_logic(opt,-1)&&(et == BOOLEAN) )
+	else if( _operation_is_logic(opt,-1)&&(vt == BOOLEAN) )
 		return 1;
 
 	return 0;
